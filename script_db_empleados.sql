@@ -54,9 +54,9 @@ select codigo_departamento from empleado;
 #6.	Lista el código de los departamentos de los empleados que aparecen en la tabla empleado, eliminando los códigos que aparecen repetidos.
 select distinct(codigo_departamento) from empleado;
 #7.	Lista el nombre y apellidos de los empleados en una única columna.
-select concat(nombre, ' ', apellido1, ' ', apellido2) as nombre_completo from empleado;
+select concat(nombre, ' ', apellido1, ' ', ifnull(apellido2, '')) as nombre_completo from empleado;
 #8.	Lista el nombre y apellidos de los empleados en una única columna, convirtiendo todos los caracteres en mayúscula.
-select upper(concat(nombre, ' ', apellido1, ' ', apellido2)) as NOMBRE_COMPLETO from empleado;
+select upper(concat(nombre, ' ', apellido1, ' ', ifnull(apellido2, ''))) as NOMBRE_COMPLETO from empleado;
 #9.	Lista el nombre y apellidos de los empleados en una única columna, convirtiendo todos los caracteres en minúscula.
 select lower(concat(nombre, ' ', apellido1, ' ', apellido2)) as nombre_completo from empleado;
 #10.	Lista el código de los empleados junto al nif, pero el nif deberá aparecer en dos columnas, una mostrará únicamente los dígitos del nif y la otra la letra.
